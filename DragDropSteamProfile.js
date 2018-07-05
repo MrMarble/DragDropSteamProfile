@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Drag & Drop Steam profile sections
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/MrMarble/DragDropSteamProfile
 // @version      0.2
 // @description  Let the user change the layout of his profile
 // @author       MrMarble
