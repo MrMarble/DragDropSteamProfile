@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Drag & Drop Steam profile sections
 // @namespace    https://github.com/MrMarble/DragDropSteamProfile
-// @version      0.3.2
+// @version      0.4
 // @description  Let the user change the layout of his profile
 // @author       MrMarble
 // @match        https://steamcommunity.com/id/*/edit
@@ -19,6 +19,7 @@
     let isModified = false;
     $.noConflict();
     addStyles();
+    createDragger();
     dragDropEvent();
 
     function addStyles() {
@@ -35,10 +36,26 @@
                 color: rgb(255, 255, 255);
                 cursor: auto;
             }`);
-        GM_addStyle('.profile_customization_header:hover{cursor:move}');
+        GM_addStyle(`
+			.profile-dragger {
+				position: absolute;
+				width: 15px;
+				height: 15px;
+				left: -50px;
+				background-color: #2f4058;
+				padding: 5px;
+				border-radius: 3px;
+				text-align: center;
+				margin-top: 10px;
+			}`);
+        GM_addStyle('.profile-dragger svg{height: 15px}');
+        GM_addStyle('.profile-dragger:hover{cursor:move}');
         GM_addStyle('#DragDropSteam:hover{cursor:pointer}');
     }
 
+    function createDragger() {
+        jQuery('.profile_showcase_selector').prepend('<div class="profile-dragger"><svg viewBox="0 0 256 512"><path fill="currentColor" d="M227.03 388.97H156V123.03h71.03c10.691 0 16.045-12.926 8.485-20.485l-99.029-99.03c-4.686-4.686-12.284-4.686-16.971 0l-99.029 99.03c-7.56 7.56-2.206 20.485 8.485 20.485H100v265.94H28.97c-10.691 0-16.045 12.926-8.485 20.485l99.029 99.03c4.686 4.686 12.284 4.686 16.971 0l99.029-99.03c7.56-7.559 2.206-20.485-8.484-20.485z"></path></svg></div>');
+    }
     function dragDropEvent(element = null) {
         let selector = element || '.profile_showcase_selector';
         jQuery(selector).draggable({
@@ -46,7 +63,7 @@
             revertDuration: 200,
             helper: "clone",
             opacity: .8,
-            handle: ".profile_customization_header",
+            handle: ".profile-dragger",
             cursor: "move"
         }).droppable({
             drop: function (event, ui) {
