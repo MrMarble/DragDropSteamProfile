@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Drag & Drop Steam profile sections
 // @namespace    https://github.com/MrMarble/DragDropSteamProfile
-// @version      0.3.1
+// @version      0.3.2
 // @description  Let the user change the layout of his profile
 // @author       MrMarble
 // @match        https://steamcommunity.com/id/*/edit
@@ -9,8 +9,8 @@
 // @require      https://code.jquery.com/jquery-3.3.1.min.js
 // @require      https://code.jquery.com/ui/1.12.1/jquery-ui.min.js
 //@homepageUrl   https://github.com/MrMarble/DragDropSteamProfile
-//@updateURL     https://raw.githubusercontent.com/MrMarble/DragDropSteamProfile/master/DragDropSteamProfile.js
-//@downloadURL   https://raw.githubusercontent.com/MrMarble/DragDropSteamProfile/master/DragDropSteamProfile.js
+//@updateURL     https://raw.githubusercontent.com/MrMarble/DragDropSteamProfile/master/DragDropSteamProfile.user.js
+//@downloadURL   https://raw.githubusercontent.com/MrMarble/DragDropSteamProfile/master/DragDropSteamProfile.user.js
 // ==/UserScript==
 
 (function () {
