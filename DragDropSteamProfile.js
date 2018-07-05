@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Drag & Drop Steam profile sections
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Let the user change the layout of his profile
 // @author       MrMarble
 // @match        https://steamcommunity.com/id/*/edit
@@ -66,7 +66,7 @@
     };
 
     function showReminder() {
-        if (!isModified || jQuery('#DragDropSteam').lenght > 1) return;
+        if (!isModified || jQuery('#DragDropSteam').length > 1) return;
         let $reminder = jQuery('<div id="DragDropSteam">There are unsaved changes!</div>');
         $reminder.on('click', function () {
             jQuery(this).remove();
